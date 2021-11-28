@@ -4,6 +4,8 @@ import FavoriteFilms from './components/pages/favorite/favoriteFilmsPage';
 import SearchFilms from './components/pages/searchFilms/searchFilmsPage';
 import DetailsPage from './components/pages/details/detailsPage';
 import Header from './components/Header';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   return (
@@ -16,6 +18,7 @@ function App() {
           <Route path="/favorite" component={FavoriteFilms} />
         </Switch>
       </Router>
+      <ToastContainer />
     </>
   );
 }

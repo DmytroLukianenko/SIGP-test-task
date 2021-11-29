@@ -45,12 +45,10 @@ export default function FavoriteFilms() {
                     :
                     <Alert variant="warning" className='mt-2 text-center'>
                         <Alert.Heading>You still don't have any favorite film's</Alert.Heading>
-                        You can find and add favorite film from
-                        <Alert.Link href='/'> This page</Alert.Link>
                     </Alert>
                 }
 
-            </Container>
+            </Container >
 
         </>
     )

@@ -30,8 +30,10 @@ const SearchFilms = () => {
     const addFavFilm = (film) => {
         if (!myFilms.find(f => f.imdbID === film.imdbID)) {
             dispatch(actions.addFavoriteFilm(film))
-        } else
-            return
+        } else {
+            dispatch(actions.deleteFilm(film.imdbID))
+        }
+
     }
 
     const loadMore = () => {

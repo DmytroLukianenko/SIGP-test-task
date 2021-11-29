@@ -17,7 +17,6 @@ const filmsReducer = createReducer(
         [filmsActions.loadMoreSuccess]: (state, { payload }) => ({ ...state, queryFilms: [...state.queryFilms, ...payload.Search] }),
         [filmsActions.deleteFilm]: (state, { payload }) => ({ ...state, myFilms: state.myFilms.filter(f => f.imdbID !== payload) }),
         [filmsActions.detailInfoSuccess]: (state, { payload }) => ({ ...state, filmById: payload }),
-        [filmsActions.clearPage]: (state, { payload }) => ({ ...state, filmById: payload })
     }
 )
 

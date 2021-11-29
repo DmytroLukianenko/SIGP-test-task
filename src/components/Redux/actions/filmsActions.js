@@ -16,8 +16,6 @@ const detailInfoRequest = createAction('detail/request')
 const detailInfoSuccess = createAction('detail/success')
 const detailInfoError = createAction('detail/error')
 
-const clearPage = createAction('clearPage')
-
 const actions = {
     queryRequest,
     querySuccess,
@@ -30,6 +28,5 @@ const actions = {
     detailInfoRequest,
     detailInfoSuccess,
     detailInfoError,
-    clearPage
 }
 export default actions

@@ -3,6 +3,7 @@ import { combineReducers } from 'redux'
 import filmsActions from '../actions/filmsActions'
 
 const filmsInitialState = {
+    query: '',
     queryFilms: [],
     error: '',
     filmById: {},
@@ -12,6 +13,7 @@ const filmsInitialState = {
 const filmsReducer = createReducer(
     { ...filmsInitialState },
     {
+        [filmsActions.addQuery]: (state, { payload }) => ({ ...state, query: payload }),
         [filmsActions.querySuccess]: (state, { payload }) => ({ ...state, queryFilms: [...payload.Search] }),
         [filmsActions.addFavoriteFilm]: (state, { payload }) => ({ ...state, myFilms: [...state.myFilms, { ...payload }] }),
         [filmsActions.loadMoreSuccess]: (state, { payload }) => ({ ...state, queryFilms: [...state.queryFilms, ...payload.Search] }),

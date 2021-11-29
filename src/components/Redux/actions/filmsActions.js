@@ -1,5 +1,7 @@
 import { createAction } from '@reduxjs/toolkit'
 
+const addQuery = createAction('addQuery')
+
 const queryRequest = createAction('queryFilm/getRequest')
 const querySuccess = createAction('queryFilm/getSuccess')
 const querryErorr = createAction('queryFilm/getError')
@@ -17,6 +19,7 @@ const detailInfoSuccess = createAction('detail/success')
 const detailInfoError = createAction('detail/error')
 
 const actions = {
+    addQuery,
     queryRequest,
     querySuccess,
     querryErorr,

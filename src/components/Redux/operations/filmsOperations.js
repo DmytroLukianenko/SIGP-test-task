@@ -3,7 +3,7 @@ import { toast } from 'react-toastify'
 import actions from '../actions/filmsActions'
 
 const API_KEY = '4b446f68'
-const URL = `http://omdbapi.com/?apikey=${API_KEY}`
+const URL = `https://omdbapi.com/?apikey=${API_KEY}`
 
 export const getQueryFilm = (query) => async dispatch => {
     dispatch(actions.queryRequest())

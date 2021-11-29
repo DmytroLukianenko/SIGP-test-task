@@ -8,37 +8,37 @@ import actions from '../../Redux/actions/filmsActions'
 import { useHistory } from 'react-router'
 
 const SearchFilms = () => {
-    const [query, setQuery] = useState('')
     const [page, setPage] = useState(2)
     const dispatch = useDispatch('')
     const history = useHistory('')
     const films = useSelector(selectors.queryFilms)
     const myFilms = useSelector(selectors.myFilms)
+    const search = useSelector(selectors.query)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (!query.length) {
+        if (!search.length) {
             return toast.warning(`Search should contain at least 1 symbol`)
         }
-        dispatch(getQueryFilm(query))
+        dispatch(getQueryFilm(search))
     }
 
     const handleInputChange = (e) => {
         const { value } = e.target
-        setQuery(value)
+        dispatch(actions.addQuery(value))
     }
+
     const addFavFilm = (film) => {
         if (!myFilms.find(f => f.imdbID === film.imdbID)) {
             dispatch(actions.addFavoriteFilm(film))
         } else {
             dispatch(actions.deleteFilm(film.imdbID))
         }
-
     }
 
     const loadMore = () => {
         setPage(page + 1)
-        dispatch(getMoreFilms(page, query))
+        dispatch(getMoreFilms(page, search))
     }
 
     const handleClick = (e, id) => {
@@ -56,7 +56,7 @@ const SearchFilms = () => {
             <Container>
                 <Form onSubmit={handleSubmit}>
                     <Row className='mt-4 center'>
-                        <Col sm='10'><Form.Control placeholder='Enter title of movie your are looking for' onChange={handleInputChange} min={1} /></Col>
+                        <Col sm='10'><Form.Control value={search} placeholder='Enter title of movie your are looking for' onChange={handleInputChange} /></Col>
                         <Col >
                             <Button type="submit" variant='warning'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill='white' viewBox="0 0 16 16">

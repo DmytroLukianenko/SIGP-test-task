@@ -1,3 +1,4 @@
+const query = state => state.filmsReducer.query
 const queryFilms = state => state.filmsReducer.queryFilms
 const myFilms = state => state.filmsReducer.myFilms
 const filmById = state => state.filmsReducer.filmById
@@ -8,6 +9,7 @@ const filmById = state => state.filmsReducer.filmById
 // const filmPoster = state => state.filmsReducer.queryFilms.Poster
 
 const selectors = {
+    query,
     queryFilms,
     myFilms,
     filmById
